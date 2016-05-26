@@ -1,0 +1,9 @@
+[PIN]
+TemperaturaInterna: 4
+SensoreTemperaturaInterna: DHT11
+
+[DATABASE]
+Posizione: localhost
+Utente: testuser
+Password: test123
+Nome: testdb
