@@ -17,7 +17,7 @@ class SensoreTRH:
         if self.Type == "DHT11":
             self.DHT_TYPE = Adafruit_DHT.DHT11
 
-    def Misure(self):
+    def Misure(self, con):
         RHMean = 0.0
         TMean = 0.0
         for i in range(0, 5):
@@ -28,6 +28,18 @@ class SensoreTRH:
         RHMean /= 5
         TMean /= 5
         self.RH, self.T = RHMean, TMean
-        print 'Rilevazione delle ', time.strftime("%H:%M:%S")
+        Time = time.strftime("%H:%M:%S")
+        TimeSQL = time.strftime("%Y-%m-%d %H:%M:%S")
+        print 'Rilevazione delle ', Time
         print "Umidità relativa: ", self.RH, "%"
         print "Temperatura: ", self.T, " °C"
+        with con:
+            cur = con.cursor()
+            sqlstatement = "INSERT INTO TRHInt(Time, T, RH) VALUES ('"
+            sqlstatement += TimeSQL
+            sqlstatement += "', "
+            sqlstatement += str(self.T)
+            sqlstatement += ", "
+            sqlstatement += str(self.RH)
+            sqlstatement += ");"
+            cur.execute(sqlstatement)
