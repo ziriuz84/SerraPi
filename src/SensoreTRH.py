@@ -4,9 +4,18 @@ import time
 import Adafruit_DHT
 
 
-class SensoreTRH:
+ lass SensoreTRH:
 
     def __init__(self, Type="DHT11", Pin=4):
+        """
+        Funzione di inizializzazione
+
+        Inizializza la classe e i suoi attributi
+
+        Args:
+            Type: il tipo di sensore
+            Pin: Il pin su cui viene letto il sensore
+        """
         self.T = 0.0
         self.RH = 0.0
         self.Type = Type
@@ -14,10 +23,24 @@ class SensoreTRH:
         self.DHT_TYPE = ""
 
     def SelectType(self):
+        """
+        Funzione di selezione del tipo di sensore
+
+        Seleziona il tipo di sensore e inizializza il tipo giusto
+        """
         if self.Type == "DHT11":
             self.DHT_TYPE = Adafruit_DHT.DHT11
 
     def Misure(self, con):
+        """
+        Funzione di misura
+
+        Legge il valore del sensore ogni secondo per  5 volte e ne calcola la
+        media, inserendo i valori nel database
+
+        Args:
+            con: connettore al database
+        """
         RHMean = 0.0
         TMean = 0.0
         for i in range(0, 5):
