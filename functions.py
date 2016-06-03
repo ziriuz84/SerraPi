@@ -1,5 +1,4 @@
 import sys
-# import csv
 import ConfigParser
 import MySQLdb as mdb
 
@@ -18,6 +17,17 @@ except e:
 
 
 def ConfigSectionMap(section):
+    """
+    Lettura dei file di configurazione
+
+    Legge il file di configurazione nella sezione prescelta
+
+    Args:
+        section:    La sezione da ricercare
+
+    Returns:
+        Un dizionario con il valore della sezione prescelta
+    """
     dict1 = {}
     options = Config.options(section)
     for option in options:
@@ -32,6 +42,20 @@ def ConfigSectionMap(section):
 
 
 def Initialize(DBPosition, DBUser, DBPassword, DBName):
+    """
+    Funzione di inizializzazione del programma
+
+    Inizializza il database e le funzioni principali del programma
+
+    Args:
+        DBPosition: La posizione del server MySQL
+        DBUser: L'utente del database
+        DBPassword: La password per accedere al database
+        DBName: Il nome del database
+
+    Raises:
+        mdb.Error, e
+    """
     try:
         con = mdb.connect(DBPosition, DBUser, DBPassword, DBName)
         with con:

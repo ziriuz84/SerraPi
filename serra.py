@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# import csv
 import time
 import RPi.GPIO as GPIO
 from functions import ConfigSectionMap, Initialize
