@@ -4,7 +4,7 @@ import time
 import Adafruit_DHT
 
 
- lass SensoreTRH:
+class SensoreTRH:
 
     def __init__(self, Type="DHT11", Pin=4):
         """
