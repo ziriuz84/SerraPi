@@ -2,6 +2,7 @@ import sys
 import ConfigParser
 import MySQLdb as mdb
 
+# TODO Far diventare questa parte una funzione (o una classe)
 
 Config = ConfigParser.ConfigParser()
 e = ""

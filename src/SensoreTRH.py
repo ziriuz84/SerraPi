@@ -28,6 +28,7 @@ class SensoreTRH:
 
         Seleziona il tipo di sensore e inizializza il tipo giusto
         """
+        # TODO Aggiungere il supporto per gli altri sensori
         if self.Type == "DHT11":
             self.DHT_TYPE = Adafruit_DHT.DHT11
 
@@ -47,6 +48,7 @@ class SensoreTRH:
             RHTemp, TTemp = Adafruit_DHT.read_retry(self.DHT_TYPE, self.Pin)
             RHMean += RHTemp
             TMean += TTemp
+            # TODO Valutare il tempo tra le misure
             time.sleep(1)
         RHMean /= 5
         TMean /= 5
