@@ -31,6 +31,10 @@ class SensoreTRH:
         # TODO Aggiungere il supporto per gli altri sensori
         if self.Type == "DHT11":
             self.DHT_TYPE = Adafruit_DHT.DHT11
+        if self.Type == "DHT22":
+            self.DHT_TYPE = Adafruit_DHT.DHT22
+        if self.Type == "AM2302":
+            self.DHT_TYPE = Adafruit_DHT.AM2302
 
     def Misure(self, con):
         """
