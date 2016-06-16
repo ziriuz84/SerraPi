@@ -35,7 +35,7 @@ class SensoreTRH:
         if self.Type == "AM2302":
             self.DHT_TYPE = Adafruit_DHT.AM2302
 
-    def Misure(self, con, win):
+    def Misure(self, con):
         """
         Funzione di misura
 
@@ -71,6 +71,3 @@ class SensoreTRH:
             sqlstatement += str(self.RH)
             sqlstatement += ");"
             cur.execute(sqlstatement)
-        win.addstr(3, 3, TimeStamp)
-        win.addstr(6, 3, RHStamp)
-        win.addstr(9, 3, TStamp)
